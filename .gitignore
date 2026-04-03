@@ -1,0 +1,73 @@
+# Angular
+## Angular ##
+# Angular compiled output
+/dist
+/tmp
+/app/**/*.js
+/app/**/*.js.map
+
+# Dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Misc
+.sass-cache/
+connect.lock*
+karma.conf.js
+karma.webpack.config.js
+last-login.txt
+
+# Coverage
+/coverage
+/coverage/**
+*.lcov
+
+# Production build
+/prod-build
+/prod-server.js
+/prerender
+/prerender/**
+*.gz
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Angular specific
+.angular/cache
+.angular/tsconfig.ngtype-cache
+
+# Debug
+npm-debug.log*
+node_modules/**
+package-lock.json
+yarn.lock
+
+# Testing
+/protractor-results.txt
+/protractor-tmp.txt
+
+# Mac
+.DS_Store
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

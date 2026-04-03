@@ -1,0 +1,58 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 id="hero-title" class="hero-title">Giải pháp công nghệ<br>cho tương lai</h1>
+      <p class="hero-subtitle">
+        PHGroup - Đối tác công nghệ đáng tin cậy của doanh nghiệp trong hành trình chuyển đổi số
+      </p>
+      <div class="hero-buttons">
+        <a routerLink="/about" class="btn">Khám phá thêm</a>
+        <a routerLink="/news" class="btn btn-outline">Tin tức mới nhất</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" aria-labelledby="about-heading">
+  <div class="container">
+    <h2 id="about-heading" class="section-title">Chào mừng đến với PHGroup</h2>
+    <p class="section-subtitle">
+      Với hơn 15 năm kinh nghiệm, chúng tôi tự hào là công ty công nghệ hàng đầu Việt Nam, mang đến những giải pháp sáng tạo và hiệu quả cho khách hàng.
+    </p>
+    <div class="stats-grid" role="list">
+      <div class="stat-item" *ngFor="let stat of stats" role="listitem">
+        <div class="stat-value">{{stat.value}}</div>
+        <div class="stat-label">{{stat.label}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <h2 id="services-heading" class="section-title">Dịch Vụ Của Chúng Tôi</h2>
+    <p class="section-subtitle">
+      Cung cấp các giải pháp công nghệ toàn diện giúp doanh nghiệp phát triển bền vững
+    </p>
+    <div class="services-grid" role="list">
+      <article class="service-card" *ngFor="let service of services" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <i [class]="service.icon"></i>
+        </div>
+        <h3 class="service-title">{{service.title}}</h3>
+        <p class="service-desc">{{service.description}}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-content">
+      <h2 id="cta-heading">Bạn đã sẵn sàng bắt đầu dự án?</h2>
+      <p>Hãy để PHGroup đồng hành cùng bạn trong hành trình chuyển đổi số</p>
+      <a href="#" class="btn">Liên hệ ngay</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <h1 id="page-title" class="page-title">Về Chúng Tôi</h1>
+    <p class="page-subtitle">Tìm hiểu về hành trình và sứ mệnh của PHGroup</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="story-heading">
+  <div class="container">
+    <div class="about-intro">
+      <div class="about-content">
+        <h2 id="story-heading" class="section-title text-left">Câu chuyện của PHGroup</h2>
+        <p>
+          Được thành lập vào năm 2010, PHGroup bắt đầu với một đội ngũ nhỏ gồm 10 kỹ sư đam mê công nghệ. Qua hơn 15 năm phát triển, chúng tôi đã trở thành một trong những công ty công nghệ hàng đầu Việt Nam với hơn 500 dự án thành công.
+        </p>
+        <p>
+          Sứ mệnh của chúng tôi là mang đến những giải pháp công nghệ tiên tiến, giúp doanh nghiệp tối ưu hóa hoạt động và tăng cường năng lực cạnh tranh trong kỷ nguyên số.
+        </p>
+        <p>
+          Với tầm nhìn trở thành công ty công nghệ được yêu thích nhất Việt Nam, PHGroup luôn không ngừng học hỏi, đổi mới và phát triển để đồng hành cùng khách hàng trong mọi bước tiến.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Đội ngũ nhân viên PHGroup làm việc tại văn phòng" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" aria-labelledby="values-heading">
+  <div class="container">
+    <h2 id="values-heading" class="section-title">Giá Trị Cốt Lõi</h2>
+    <p class="section-subtitle">Những nguyên tắc định hướng mọi hoạt động của PHGroup</p>
+    <div class="values-grid" role="list">
+      <article class="value-card" *ngFor="let value of values; let i = index" role="listitem">
+        <div class="value-icon" aria-hidden="true">
+          <i [class]="value.icon"></i>
+        </div>
+        <h3>{{value.title}}</h3>
+        <p>{{value.description}}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="team-heading">
+  <div class="container">
+    <h2 id="team-heading" class="section-title">Đội Ngũ Lãnh Đạo</h2>
+    <p class="section-subtitle">Những người dẫn dắt PHGroup vươn xa</p>
+    <div class="team-grid" role="list">
+      <article class="team-card" *ngFor="let member of team" role="listitem">
+        <div class="team-image">
+          <img [src]="member.image" [alt]="'Hình ảnh ' + member.name + ', ' + member.position" loading="lazy">
+        </div>
+        <h3 class="team-name">{{member.name}}</h3>
+        <p class="team-position">{{member.position}}</p>
+        <p class="team-bio">{{member.bio}}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" aria-labelledby="timeline-heading">
+  <div class="container">
+    <h2 id="timeline-heading" class="section-title">Hành Trình Phát Triển</h2>
+    <p class="section-subtitle">Những cột mốc quan trọng trong lịch sử PHGroup</p>
+    <div class="timeline" role="list">
+      <div class="timeline-item" *ngFor="let milestone of milestones" role="listitem">
+        <div class="timeline-year">{{milestone.year}}</div>
+        <div class="timeline-content">
+          <p>{{milestone.event}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

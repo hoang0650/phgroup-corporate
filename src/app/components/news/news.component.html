@@ -1,0 +1,53 @@
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <h1 id="page-title" class="page-title">Tin Tức</h1>
+    <p class="page-subtitle">Cập nhật những tin tức mới nhất từ PHGroup</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="news-heading">
+  <div class="container">
+    <h2 id="news-heading" class="visually-hidden">Danh sách tin tức</h2>
+
+    <nav class="category-tabs" aria-label="Lọc tin tức theo danh mục">
+      <button
+        *ngFor="let cat of categories"
+        class="category-tab"
+        [class.active]="selectedCategory === cat"
+        (click)="selectCategory(cat)"
+        [attr.aria-pressed]="selectedCategory === cat">
+        {{cat}}
+      </button>
+    </nav>
+
+    <div class="news-grid" role="list">
+      <article class="news-card" *ngFor="let item of filteredNews" role="listitem">
+        <div class="news-image">
+          <img [src]="item.image" [alt]="item.title" loading="lazy">
+          <span class="news-category">{{item.category}}</span>
+        </div>
+        <div class="news-content">
+          <div class="news-date">
+            <i class="far fa-calendar" aria-hidden="true"></i>
+            <time [attr.datetime]="item.date">{{formatDate(item.date)}}</time>
+          </div>
+          <h3 class="news-title">{{item.title}}</h3>
+          <p class="news-desc">{{item.description}}</p>
+          <a href="#" class="news-link" [attr.aria-label]="'Đọc thêm về ' + item.title">Đọc thêm <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="newsletter">
+      <div class="newsletter-content">
+        <h3>Đăng ký nhận tin tức</h3>
+        <p>Nhận thông tin cập nhật mới nhất từ PHGroup qua email</p>
+        <form class="newsletter-form">
+          <label for="newsletter-email" class="visually-hidden">Email của bạn</label>
+          <input id="newsletter-email" type="email" placeholder="Nhập email của bạn" required>
+          <button type="submit" class="btn">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

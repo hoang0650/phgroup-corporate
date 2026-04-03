@@ -1,0 +1,242 @@
+.page-hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 140px 0 80px;
+  text-align: center;
+  color: var(--bg-white);
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.category-tab {
+  padding: 10px 24px;
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.category-tab:hover {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+
+.category-tab.active {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.news-card {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.news-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-category {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--primary);
+  color: var(--bg-white);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-date i {
+  color: var(--accent);
+}
+
+.news-title {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-link {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.news-link:hover {
+  color: var(--secondary);
+  gap: 12px;
+}
+
+.newsletter {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-lg);
+  padding: 50px;
+  text-align: center;
+  color: var(--bg-white);
+}
+
+.newsletter-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-form button {
+  background-color: var(--accent);
+  color: var(--text-primary);
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter {
+    padding: 30px 20px;
+  }
+
+  .newsletter-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .category-tabs {
+    gap: 10px;
+  }
+
+  .category-tab {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
