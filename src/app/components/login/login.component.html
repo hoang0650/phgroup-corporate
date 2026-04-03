@@ -1,0 +1,71 @@
+<section class="login-page">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo">
+          <i class="fas fa-code"></i>
+          <span>PHGroup</span>
+        </div>
+        <h1>Đăng nhập Admin</h1>
+        <p>Quản lý nội dung trang web</p>
+      </div>
+
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <div class="form-group" *ngIf="errorMessage">
+          <div class="error-alert">
+            <i class="fas fa-exclamation-circle"></i>
+            {{errorMessage}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Tên đăng nhập</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="username"
+              [(ngModel)]="username"
+              name="username"
+              placeholder="Nhập tên đăng nhập"
+              autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="Nhập mật khẩu"
+              autocomplete="current-password">
+            <button type="button" class="toggle-password" (click)="togglePassword()">
+              <i class="fas" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login">
+          <i class="fas fa-sign-in-alt"></i>
+          Đăng nhập
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <a routerLink="/" class="back-home">
+          <i class="fas fa-arrow-left"></i>
+          Quay lại trang chủ
+        </a>
+      </div>
+    </div>
+
+    <div class="login-info">
+      <p><strong>Lưu ý:</strong> Trang này chỉ dành cho quản trị viên.</p>
+      <p class="version">PHGroup Admin Panel v1.0</p>
+    </div>
+  </div>
+</section>

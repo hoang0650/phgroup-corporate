@@ -7,7 +7,7 @@ import { Title, Meta } from '@angular/platform-browser';
 export class SeoService {
   private siteName = 'PHGroup';
   private defaultDescription = 'PHGroup - Công ty hàng đầu về giải pháp công nghệ thông tin, phát triển phần mềm, cloud computing và an ninh mạng tại Việt Nam.';
-  private defaultUrl = 'https://phgroup.vn';
+  private defaultUrl = 'https://phgrouptechs.com';
 
   constructor(private title: Title, private meta: Meta) {}
 

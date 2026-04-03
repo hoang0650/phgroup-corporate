@@ -1,0 +1,83 @@
+<article class="news-detail" *ngIf="news">
+  <header class="news-hero" [style.backgroundImage]="'url(' + news.image + ')'">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="news-meta">
+        <span class="news-category">{{news.category}}</span>
+        <span class="news-date">
+          <i class="far fa-calendar" aria-hidden="true"></i>
+          <time [attr.datetime]="news.date">{{formatDate(news.date)}}</time>
+        </span>
+      </div>
+      <h1 class="news-title">{{news.title}}</h1>
+    </div>
+  </header>
+
+  <section class="news-content-section">
+    <div class="container">
+      <div class="news-content-wrapper">
+        <div class="share-buttons">
+          <span>Chia sẻ:</span>
+          <button class="share-btn" aria-label="Chia sẻ Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+          <button class="share-btn" aria-label="Chia sẻ LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </button>
+          <button class="share-btn" aria-label="Chia sẻ Twitter">
+            <i class="fab fa-twitter"></i>
+          </button>
+        </div>
+
+        <div class="news-content">
+          <p class="news-description">{{news.description}}</p>
+          <ng-container *ngFor="let block of contentBlocks">
+            <p *ngIf="block.type === 'paragraph'">{{block.text}}</p>
+            <h3 *ngIf="block.type === 'heading'">{{block.text}}</h3>
+          </ng-container>
+        </div>
+
+        <div class="news-tags">
+          <span class="tag">{{news.category}}</span>
+          <span class="tag">PHGroup</span>
+          <span class="tag">Công nghệ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-news" *ngIf="relatedNews.length > 0">
+    <div class="container">
+      <h2 class="section-title">Tin liên quan</h2>
+      <div class="related-grid">
+        <article class="related-card" *ngFor="let item of relatedNews" [routerLink]="['/news', item.id]">
+          <div class="related-image">
+            <img [src]="item.image" [alt]="item.title" loading="lazy">
+            <span class="related-category">{{item.category}}</span>
+          </div>
+          <div class="related-content">
+            <h3>{{item.title}}</h3>
+            <p>{{item.description | slice:0:100}}...</p>
+            <span class="read-more">Đọc tiếp <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="back-to-news">
+    <div class="container">
+      <a routerLink="/news" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Quay lại Tin tức
+      </a>
+    </div>
+  </section>
+</article>
+
+<div class="not-found" *ngIf="!news">
+  <div class="container">
+    <h1>Tin tức không tìm thấy</h1>
+    <p>Tin tức bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.</p>
+    <a routerLink="/news" class="btn">Quay lại Tin tức</a>
+  </div>
+</div>

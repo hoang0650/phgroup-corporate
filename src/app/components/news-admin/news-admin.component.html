@@ -1,0 +1,96 @@
+<section class="admin-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Quản lý Tin tức</h1>
+        <p class="subtitle">Tạo, chỉnh sửa và xóa tin tức</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/" class="btn btn-outline-light">
+          <i class="fas fa-home"></i> Về trang chủ
+        </a>
+        <button class="btn btn-logout" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Đăng xuất
+        </button>
+        <button class="btn btn-primary" (click)="createNews()">
+          <i class="fas fa-plus"></i> Tạo tin mới
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="admin-content">
+  <div class="container">
+    <div class="filters">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Tìm kiếm tin tức..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="searchTerm = $event">
+      </div>
+      <div class="category-filter">
+        <select [(ngModel)]="selectedCategory" (ngModelChange)="selectedCategory = $event">
+          <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="news-table-wrapper">
+      <table class="news-table">
+        <thead>
+          <tr>
+            <th class="col-image">Hình ảnh</th>
+            <th class="col-title">Tiêu đề</th>
+            <th class="col-category">Danh mục</th>
+            <th class="col-date">Ngày đăng</th>
+            <th class="col-actions">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredNews">
+            <td class="col-image">
+              <img [src]="item.image" [alt]="item.title" class="thumbnail">
+            </td>
+            <td class="col-title">
+              <h3>{{item.title}}</h3>
+              <p>{{item.description | slice:0:80}}...</p>
+            </td>
+            <td class="col-category">
+              <span class="category-badge" [ngClass]="getCategoryClass(item.category)">
+                {{item.category}}
+              </span>
+            </td>
+            <td class="col-date">{{formatDate(item.date)}}</td>
+            <td class="col-actions">
+              <button class="action-btn view" (click)="viewNews(item.id)" title="Xem">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="action-btn edit" (click)="editNews(item.id)" title="Sửa">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="action-btn delete" (click)="deleteNews(item.id)" title="Xóa">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="empty-state" *ngIf="filteredNews.length === 0">
+        <i class="fas fa-newspaper"></i>
+        <h3>Không có tin tức nào</h3>
+        <p>{{searchTerm || selectedCategory !== 'Tất cả' ? 'Thử thay đổi bộ lọc' : 'Tạo tin tức đầu tiên của bạn'}}</p>
+        <button class="btn btn-primary" (click)="createNews()" *ngIf="!searchTerm && selectedCategory === 'Tất cả'">
+          <i class="fas fa-plus"></i> Tạo tin mới
+        </button>
+      </div>
+    </div>
+
+    <div class="pagination" *ngIf="filteredNews.length > 0">
+      <p class="total-count">Tổng cộng: {{filteredNews.length}} tin tức</p>
+    </div>
+  </div>
+</section>

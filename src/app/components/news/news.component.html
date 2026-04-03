@@ -33,7 +33,7 @@
           </div>
           <h3 class="news-title">{{item.title}}</h3>
           <p class="news-desc">{{item.description}}</p>
-          <a href="#" class="news-link" [attr.aria-label]="'Đọc thêm về ' + item.title">Đọc thêm <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <a [routerLink]="['/news', item.id]" class="news-link" [attr.aria-label]="'Đọc thêm về ' + item.title">Đọc thêm <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
     </div>
