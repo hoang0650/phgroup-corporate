@@ -14,14 +14,14 @@ export class SeoService {
   updateTitle(title: string): void {
     const t = String(title || '').trim();
     if (!t) {
-      this.title.setTitle(`${this.siteName}: Trang chủ`);
+      this.title.setTitle(`${this.siteName} | Trang chủ`);
       return;
     }
     if (t.toLowerCase().includes(this.siteName.toLowerCase())) {
       this.title.setTitle(t);
       return;
     }
-    this.title.setTitle(`${this.siteName}: ${t}`);
+    this.title.setTitle(`${this.siteName} | ${t}`);
   }
 
   updateDescription(description: string): void {
@@ -37,7 +37,7 @@ export class SeoService {
   }): void {
     const { title, description, image, url, type } = data;
 
-    const ogTitle = title ? (title.toLowerCase().includes(this.siteName.toLowerCase()) ? title : `${this.siteName}: ${title}`) : `${this.siteName}: Trang chủ`;
+    const ogTitle = title ? (title.toLowerCase().includes(this.siteName.toLowerCase()) ? title : `${this.siteName} | ${title}`) : `${this.siteName} | Trang chủ`;
     this.meta.updateTag({ property: 'og:description', content: description || this.defaultDescription });
     this.meta.updateTag({ property: 'og:image', content: image || `${this.defaultUrl}/assets/images/og-image.jpg` });
     this.meta.updateTag({ property: 'og:url', content: url || this.getCurrentUrl() || this.defaultUrl });
@@ -54,7 +54,7 @@ export class SeoService {
     const { title, description, image } = data;
 
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    const twTitle = title ? (title.toLowerCase().includes(this.siteName.toLowerCase()) ? title : `${this.siteName}: ${title}`) : `${this.siteName}: Trang chủ`;
+    const twTitle = title ? (title.toLowerCase().includes(this.siteName.toLowerCase()) ? title : `${this.siteName} | ${title}`) : `${this.siteName} | Trang chủ`;
     this.meta.updateTag({ name: 'twitter:title', content: twTitle });
     this.meta.updateTag({ name: 'twitter:description', content: description || this.defaultDescription });
     this.meta.updateTag({ name: 'twitter:image', content: image || `${this.defaultUrl}/assets/images/og-image.jpg` });
