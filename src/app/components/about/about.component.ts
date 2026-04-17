@@ -73,7 +73,6 @@ export class AboutComponent implements OnInit {
     this.seoService.setPageSEO({
       title: 'Về chúng tôi',
       description: 'Tìm hiểu về lịch sử, sứ mệnh, giá trị cốt lõi và đội ngũ lãnh đạo của PHGroup - Công ty công nghệ hàng đầu Việt Nam.',
-      url: 'https://phgroup.vn/about',
       type: 'website'
     });
   }

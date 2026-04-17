@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
     this.seoService.setPageSEO({
       title: 'Trang chủ',
       description: 'PHGroup - Giải pháp công nghệ hàng đầu Việt Nam. Phát triển phần mềm, Cloud Computing, An ninh mạng và Chuyển đổi số.',
-      url: 'https://phgroup.vn',
       type: 'website'
     });
   }

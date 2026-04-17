@@ -40,7 +40,6 @@ export class NewsDetailComponent implements OnInit {
     this.seoService.setPageSEO({
       title: this.news.title,
       description: this.news.description,
-      url: `https://phgrouptechs.com/news/${this.news.id}`,
       type: 'article',
       image: this.news.image
     });
